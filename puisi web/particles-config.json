@@ -1,0 +1,10 @@
+{
+  "particles": {
+    "number": { "value": 80 },
+    "size": { "value": 2 },
+    "color": { "value": "#ffffff" },
+    "opacity": { "value": 0.8 },
+    "move": { "speed": 0.6 },
+    "line_linked": { "enable": false }
+  }
+}

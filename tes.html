@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PANG - Swipe Puisi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="card">
+          <h1>Waktu Kamu dan Dia</h1>
+          <div class="poem">
+            <p>Saat senja jatuh di pelupuk hari,<br>
+            namamu masih berbisik di antara sunyi.<br>
+            Kamu dulu cerita, dia cuma singgah,<br>
+            tapi matamu bercerita lebih dari kata.</p>
+
+            <p>Kamu tertawa, dia mendengar,<br>
+            kamu luka, dia ada tanpa bertanya.<br>
+            Waktu kalian seperti hujan pertama,<br>
+            dingin tapi dirindukan siapa saja.</p>
+
+            <p>Kini kamu dan dia tak lagi bersama,<br>
+            tapi waktu tetap menyimpan jejaknya.<br>
+            Aku yang tahu semua kisahnya,<br>
+            cuma diam… memeluk cerita yang tak punya nama.</p>
+
+            <p class="signature">&gt; kunyuk</p>
+
+            <button onclick="togglePlayer('music1')" class="music-btn">🎵 Putar Lagu</button>
+            <div id="music1" class="music-player hidden">
+              <audio controls loop>
+                <source src="a_thousand_years.mp3" type="audio/mp3">
+              </audio>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="card">
+          <h1>Langit yang Tak Ditanya</h1>
+          <div class="poem">
+            <p>Ada tanya yang tak pernah sampai,<br>
+            seperti hujan yang lupa jatuh ke bumi.<br>
+            Aku melihatmu di antara lalu-lalang doa,<br>
+            tapi tak satu pun ditujukan untukku.</p>
+
+            <p>Kita bukan apa-apa, hanya perasaan<br>
+            yang tertinggal di ujung percakapan sunyi.<br>
+            Tapi aku tetap menengadah,<br>
+            menunggu langit menjawab namaku sekali saja.</p>
+
+            <p class="signature">&gt; arlott</p>
+
+            <button onclick="togglePlayer('music2')" class="music-btn">🎵 Putar Lagu</button>
+            <div id="music2" class="music-player hidden">
+              <audio controls loop>
+                <source src="perfect.mp3" type="audio/mp3">
+              </audio>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Navigasi -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper('.mySwiper', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+          loop: true,
+    on: {
+      slideChange: () => {
+        // Matikan semua audio saat ganti slide
+        const allAudios = document.querySelectorAll('audio');
+        allAudios.forEach(audio => {
+          audio.pause();
+          audio.currentTime = 0;
+        });
+      }
+    }
+  });
+    function togglePlayer(id) {
+    const player = document.getElementById(id);
+    player.classList.toggle('hidden');
+    player.classList.toggle('visible');
+  }
+
+    particlesJS.load('particles-js', 'particles-config.json');
+  </script>
+</body>
+</html>
